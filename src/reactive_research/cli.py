@@ -6,9 +6,6 @@
 
 import argparse
 from collections.abc import Callable, Sequence
-from importlib.metadata import PackageNotFoundError, version
-from pathlib import Path
-import tomllib
 
 from reactive_research.commands import (
     extract,
@@ -19,29 +16,9 @@ from reactive_research.commands import (
     snapshot,
     validate,
 )
+from reactive_research.versioning import package_version
 
 CommandHandler = Callable[[argparse.Namespace], int]
-
-
-def _package_version() -> str:
-    """Return the Reactive Research package version."""
-    try:
-        return version("reactive-research")
-    except PackageNotFoundError:
-        pyproject_path = Path(__file__).parents[2] / "pyproject.toml"
-
-        with pyproject_path.open("rb") as file:
-            pyproject = tomllib.load(file)
-
-        project = pyproject.get("project")
-        if not isinstance(project, dict):
-            raise TypeError("pyproject.toml does not contain a [project] table.")
-
-        package_version = project.get("version")
-        if not isinstance(package_version, str) or not package_version:
-            raise RuntimeError("pyproject.toml does not define project.version.")
-
-        return package_version
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -56,7 +33,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--version",
         action="version",
-        version=f"%(prog)s {_package_version()}",
+        version=f"%(prog)s {package_version()}",
     )
 
     subparsers = parser.add_subparsers(

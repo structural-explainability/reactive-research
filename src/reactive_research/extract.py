@@ -4,19 +4,15 @@
 
 """Extract Reactive Research declarations.
 
-Can be provided in any source file with an eligible suffix.
-
-Examples:
-# RR.DEFINES: SE-210.Definition.4.3
-# rr.defines: SE-210.Definition.4.3
-# REACTIVE-RESEARCH.DEFINES: SE-210.Definition.4.3
-# reactive-research.defines: SE-210.Definition.4.3
+Reactive Research annotations may be provided in any source file with an
+eligible suffix.
 """
 
 from pathlib import Path
 import re
 from typing import Any
 
+from reactive_research.declarations import declaration_document
 from reactive_research.identifiers import (
     InvalidResearchIdentifierError,
     parse_research_identifier,
@@ -32,32 +28,33 @@ from reactive_research.models import (
 from reactive_research.repository import discover_repository_context
 
 _NAMESPACE = r"(?:RR|REACTIVE-RESEARCH)"
-_RELATION = r"(?P<relation>DEFINES|IMPLEMENTS)"
+_RELATION = r"(?P<relation>[A-Za-z][A-Za-z0-9_-]*)"
+_IDENTIFIER = r"(?P<identifier>.+?)"
 
 _ANNOTATION_PATTERNS = {
     ".py": re.compile(
         rf"^\s*#\s*{_NAMESPACE}\.{_RELATION}:\s*"
-        r"(?P<identifier>[A-Za-z][A-Za-z0-9_.-]*)\s*$",
+        rf"{_IDENTIFIER}\s*$",
         re.IGNORECASE,
     ),
     ".toml": re.compile(
         rf"^\s*#\s*{_NAMESPACE}\.{_RELATION}:\s*"
-        r"(?P<identifier>[A-Za-z][A-Za-z0-9_.-]*)\s*$",
+        rf"{_IDENTIFIER}\s*$",
         re.IGNORECASE,
     ),
     ".lean": re.compile(
         rf"^\s*--\s*{_NAMESPACE}\.{_RELATION}:\s*"
-        r"(?P<identifier>[A-Za-z][A-Za-z0-9_.-]*)\s*$",
+        rf"{_IDENTIFIER}\s*$",
         re.IGNORECASE,
     ),
     ".tex": re.compile(
         rf"^\s*%\s*{_NAMESPACE}\.{_RELATION}:\s*"
-        r"(?P<identifier>[A-Za-z][A-Za-z0-9_.-]*)\s*$",
+        rf"{_IDENTIFIER}\s*$",
         re.IGNORECASE,
     ),
     ".md": re.compile(
         rf"^\s*<!--\s*{_NAMESPACE}\.{_RELATION}:\s*"
-        r"(?P<identifier>[A-Za-z][A-Za-z0-9_.-]*)\s*-->\s*$",
+        rf"{_IDENTIFIER}\s*-->\s*$",
         re.IGNORECASE,
     ),
 }
@@ -115,24 +112,14 @@ def extract_research(
     path: Path,
     check: bool = False,
 ) -> dict[str, Any]:
-    """Extract declarations and return the CLI representation."""
+    """Extract declarations and return the normalized CLI representation."""
     result = extract_repository(path)
+    document = declaration_document(result)
 
     return {
         "command": "extract",
-        "path": str(result.repository.root),
-        "repository": result.repository.name,
-        "organization": result.repository.organization,
-        "revision": result.repository.revision,
         "check": check,
-        "valid": result.valid,
-        "defines": [_declaration_dict(declaration) for declaration in result.defines],
-        "implements": [
-            _declaration_dict(declaration) for declaration in result.implements
-        ],
-        "diagnostics": [
-            _diagnostic_dict(diagnostic) for diagnostic in result.diagnostics
-        ],
+        **document,
     }
 
 
@@ -180,7 +167,10 @@ def _extract_file(
 
     relative_path = path.relative_to(root)
 
-    for line_number, line in enumerate(text.splitlines(), start=1):
+    for line_number, line in enumerate(
+        text.splitlines(),
+        start=1,
+    ):
         match = pattern.fullmatch(line)
         if match is None:
             continue
@@ -190,8 +180,24 @@ def _extract_file(
             line=line_number,
         )
 
-        relation = ResearchRelation(match.group("relation").upper())
-        raw_identifier = match.group("identifier")
+        raw_relation = match.group("relation").upper()
+
+        try:
+            relation = ResearchRelation(raw_relation)
+        except ValueError:
+            diagnostics.append(
+                Diagnostic(
+                    code="RR.UNSUPPORTED_RELATION",
+                    message=(
+                        f"Unsupported Reactive Research relationship: {raw_relation!r}."
+                    ),
+                    severity=DiagnosticSeverity.ERROR,
+                    source=location,
+                )
+            )
+            continue
+
+        raw_identifier = match.group("identifier").strip()
 
         try:
             identifier = parse_research_identifier(raw_identifier)
@@ -251,35 +257,3 @@ def _duplicate_definition_diagnostics(
             )
 
     return diagnostics
-
-
-def _declaration_dict(
-    declaration: ResearchDeclaration,
-) -> dict[str, object]:
-    """Convert one declaration to the CLI representation."""
-    return {
-        "relation": declaration.relation.value,
-        "identifier": str(declaration.identifier),
-        "source_path": declaration.source.path.as_posix(),
-        "source_line": declaration.source.line,
-    }
-
-
-def _diagnostic_dict(
-    diagnostic: Diagnostic,
-) -> dict[str, object]:
-    """Convert one diagnostic to the CLI representation."""
-    source_path: str | None = None
-    source_line: int | None = None
-
-    if diagnostic.source is not None:
-        source_path = diagnostic.source.path.as_posix()
-        source_line = diagnostic.source.line
-
-    return {
-        "code": diagnostic.code,
-        "severity": diagnostic.severity.value,
-        "message": diagnostic.message,
-        "source_path": source_path,
-        "source_line": source_line,
-    }

@@ -9,7 +9,7 @@
 [project]
 name = "reactive-research"
 description = "Tools for reactive research."
-version = "0.1.0"
+dynamic = ["version"]
 license-files = ["LICENSE"]
 readme = "README.md"
 requires-python = ">=3.14"
@@ -151,7 +151,7 @@ packages = ["src/reactive_research"]
 
 [tool.hatch.version]
 # Used when no git tags present (fresh clone, CI). Keep in sync with CITATION.cff.
-fallback-version = "0.1.0"
+fallback-version = "0.2.0"
 # WHY: Version derived from git tags at build time.
 source = "vcs"
 tag-pattern = "^(?:v)?(?P<version>\\d+\\.\\d+\\.\\d+)$"

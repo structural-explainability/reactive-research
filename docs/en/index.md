@@ -15,91 +15,66 @@ Research objects are first-class graph nodes.
 
 For example:
 
-```text
-repository: specification
-        |
-        | DEFINES
-        v
-SE-210.Definition.4.3
-        ^
-        | IMPLEMENTS
-        |
-repository: verifier
+```mermaid
+flowchart TD
+    A["repository: specification"] -->|DEFINES| B["research object"]
+    C["repository: verifier"] -->|IMPLEMENTS| B
 ```
 
-Repository-to-repository dependency graphs can be derived from this richer
-research-object graph.
+Repository-to-repository relationships may be derived as projections
+of the richer research-object graph.
 
 ## Typed Relationships
 
-Reactive Research preserves the meaning of different relationships.
+Reactive Research preserves the semantic meaning of relationships
+rather than collapsing them into one ambiguous dependency list.
 
-Initial relationship classes include:
-
-```text
-RR.DEFINES
-RR.IMPLEMENTS
-RR.DEPENDS
-RR.INFORMS
-RR.EVIDENCES
-```
-
-The expanded namespace is also supported:
+Source annotations use the `RR` namespace:
 
 ```text
-REACTIVE-RESEARCH.DEFINES
-REACTIVE-RESEARCH.IMPLEMENTS
-REACTIVE-RESEARCH.DEPENDS
-REACTIVE-RESEARCH.INFORMS
-REACTIVE-RESEARCH.EVIDENCES
+RR.<RELATION>: <IDENTIFIER>
 ```
 
-Namespaces and relationship names are case-insensitive.
+For example:
 
-Build dependencies, semantic implementation dependencies,
-and informal intellectual relationships must not be collapsed
-into one ambiguous dependency list.
+```text
+RR.DEFINES: SE-210.Definition.4.3
+RR.IMPLEMENTS: SE-210.Definition.4.3
+```
 
-## Reactive Research Workflow
+The expanded `REACTIVE-RESEARCH` namespace is also supported.
+
+The authoritative relationship vocabulary and semantics are defined by the
+[Reactive Research specification](https://github.com/structural-explainability/reactive-research-spec).
+
+## Research Coordination
 
 Conceptually:
 
-```text
-authoritative research source
-        ↓
-typed declarations
-        ↓
-research-object contract
-        ↓
-identifier resolution
-        ↓
-typed research graph
-        ↓
-validation
-        ↓
-versioned snapshot
-        ↓
-change-impact analysis
-        ↓
-explicit revalidation obligations
+```mermaid
+flowchart TD
+    A["authoritative research sources"] --> B["typed declarations"]
+    B --> C["identifier resolution"]
+    C --> D["versioned research graph"]
+    D --> E["change-impact analysis"]
+    E --> F["explicit downstream obligations"]
 ```
 
 An affected downstream result is **not** automatically invalid.
+
 It means its status relative to a changed upstream research object
 may need to be established again.
 
+Different relationship types may generate different obligations,
+such as re-running, re-proving, re-reviewing, or reconsidering
+downstream work.
+
 ## Command-Line API
 
-The `reactive-research` package provides the reference command-line
+The `reactive-research` package provides the reference executable
 implementation.
 
-See [API](api.md) for:
-
-- annotation syntax;
-- supported source formats;
-- command-line commands;
-- machine-readable output; and
-- current implementation status.
+See [API](api.md) for command-line usage and annotation syntax.
 
 ## Structured Research
 
@@ -149,29 +124,28 @@ requirement
 → assurance claim
 ```
 
+The graph does not decide what is true or what decision should be made.
+
+It makes dependencies, provenance, and the effects of change visible.
+
 ## Structural Explainability Integration
 
 Reactive Research originated within the Structural Explainability research
 ecosystem but is intended to remain usable independently.
 
-Related Structural Explainability repositories include:
+Within Structural Explainability, Reactive Research can compose declarations
+from existing repository manifests, reference artifacts, formal contracts,
+source annotations, and other compatible authoritative surfaces.
 
-1. [se-manifest-schema](https://github.com/structural-explainability/se-manifest-schema) — repository manifests and existing graph semantics.
-2. [se-theory-reference-kit](https://github.com/structural-explainability/se-theory-reference-kit) — authoritative-source to stable-reference to generated-artifact validation.
-3. [se-contract-kit](https://github.com/structural-explainability/se-contract-kit) — declaration, resolution, and validation architecture.
-4. [accountable-surface-spec](https://github.com/structural-explainability/accountable-surface-spec) — authority over automated repository changes.
-5. [paper-210-operational-identity](https://github.com/structural-explainability/paper-210-operational-identity) — initial `RR.DEFINES` source fixture.
-6. [se-verification-operational-identity](https://github.com/structural-explainability/se-verification-operational-identity) — initial `RR.IMPLEMENTS` consumer fixture.
-7. [se-theory-structural-assurability](https://github.com/structural-explainability/se-theory-structural-assurability) — formal-theory and reference-surface fixture.
+Existing tools remain authoritative for the surfaces they own.
 
-Each existing tool remains authoritative for its own contract surface.
-
-Reactive Research composes those declarations into a broader research graph.
+Reactive Research resolves and composes those declarations into a broader
+research graph rather than redefining them.
 
 ## Project Family
 
-Reactive Research currently consists of:
+Reactive Research consists of:
 
-- [reactive-research-spec](https://github.com/structural-explainability/reactive-research-spec) — normative model;
-- [reactive-research-registry](https://github.com/structural-explainability/reactive-research-registry) — resolvable graph and snapshots; and
-- [reactive-research](https://github.com/structural-explainability/reactive-research) — executable tooling.
+- [reactive-research-spec](https://github.com/structural-explainability/reactive-research-spec) - normative model;
+- [reactive-research-registry](https://github.com/structural-explainability/reactive-research-registry) - resolvable graph and snapshots; and
+- [reactive-research](https://github.com/structural-explainability/reactive-research) - executable tooling.

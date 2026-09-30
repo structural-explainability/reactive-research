@@ -1,0 +1,16 @@
+{
+  "check": false,
+  "command": "extract",
+  "declarations": [],
+  "diagnostics": [],
+  "extractor_version": "0.1.1.dev0+gc03491bd4.d20260930",
+  "format": "reactive-research-declarations",
+  "format_version": 1,
+  "path": "C:\\Users\\edaci\\Documents\\structural-explainability\\reactive-research",
+  "repository": {
+    "name": "reactive-research",
+    "organization": "structural-explainability",
+    "revision": "c03491bd404656545a605fb6b6660955fec72481"
+  },
+  "valid": true
+}

@@ -11,6 +11,19 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
 
 ---
 
+## [0.2.0] - 2026-09-30
+
+### Added
+
+- Repository-local validation for Reactive Research declarations.
+- Normalized machine-readable declaration export.
+- Cross-repository identifier resolution against local declaration registries.
+- Resolution states for `resolved`, `unresolved`, and `duplicate-definition`.
+- Validation diagnostics for unsupported relationships and malformed identifiers.
+- Package-version discovery shared by the CLI and declaration export.
+
+---
+
 ## [0.1.0] - 2026-09-30
 
 ### Added
@@ -74,79 +87,25 @@ uvx cffconvert --validate
 # Format Markdown.
 npx markdownlint-cli2 --fix
 
-# ============================================================
-# REACTIVE RESEARCH CLI
-# ============================================================
-
-# Show top-level help and version.
-uv run reactive-research
+# Verify CLI identity.
 uv run reactive-research --help
 uv run reactive-research --version
 
-# Show command help.
-uv run reactive-research extract --help
-uv run reactive-research validate --help
+# Extract normalized declarations and exercise file output.
+uv run reactive-research extract --format json --output registry\declarations.json
+
+# Exercise repository-local validation.
+uv run reactive-research validate --strict --format json
+
+# Exercise registry loading and resolution of all local references.
+uv run reactive-research resolve --all --registry registry --format json
+
+# Verify remaining command surfaces parse successfully.
 uv run reactive-research resolve --help
 uv run reactive-research graph --help
 uv run reactive-research impact --help
 uv run reactive-research snapshot --help
 uv run reactive-research inspect --help
-
-# ============================================================
-# IMPLEMENTED
-# ============================================================
-
-# Extract RR.DEFINES and RR.IMPLEMENTS annotations from this repository.
-uv run reactive-research extract
-
-# Extract as JSON.
-uv run reactive-research extract --format json
-
-# Extract from another local repository.
-uv run reactive-research extract --path C:\Repos\some-repository
-
-# Write extraction output to a file.
-uv run reactive-research extract --format json --output extraction.json
-
-# The --check option is accepted.
-# NOTE: It currently records check=true but does not yet compare/write artifacts.
-uv run reactive-research extract --check
-
-# ============================================================
-# SCAFFOLDED - COMMANDS RUN, CORE SEMANTICS NOT YET IMPLEMENTED
-# ============================================================
-
-# Local validation scaffold.
-uv run reactive-research validate
-uv run reactive-research validate --strict
-
-# Identifier-resolution scaffold.
-uv run reactive-research resolve SE-210.Definition.4.3
-uv run reactive-research resolve --all
-
-# Graph scaffold.
-uv run reactive-research graph
-uv run reactive-research graph --view objects
-uv run reactive-research graph --view repositories
-
-# Impact-analysis scaffold.
-uv run reactive-research impact SE-210.Definition.4.3
-uv run reactive-research impact SE-210.Definition.4.3 --direct
-uv run reactive-research impact SE-210.Definition.4.3 --transitive
-
-# Snapshot scaffold.
-uv run reactive-research snapshot
-
-# Inspection scaffold.
-uv run reactive-research inspect SE-210.Definition.4.3
-
-# All scaffolded commands also support structured JSON output.
-uv run reactive-research validate --format json
-uv run reactive-research resolve SE-210.Definition.4.3 --format json
-uv run reactive-research graph --format json
-uv run reactive-research impact SE-210.Definition.4.3 --format json
-uv run reactive-research snapshot --format json
-uv run reactive-research inspect SE-210.Definition.4.3 --format json
 ```
 
 ### Task 4. Commit, push, tag
@@ -173,7 +132,8 @@ git push origin :refs/tags/vX.Z.Y
 
 ## Links
 
-[Unreleased]: https://github.com/structural-explainability/reactive-research/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/structural-explainability/reactive-research/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/structural-explainability/reactive-research/releases/tag/v0.2.0
 [0.1.0]: https://github.com/structural-explainability/reactive-research/releases/tag/v0.1.0
 
 <!-- markdownlint-enable MD024 -->
