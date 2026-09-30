@@ -1,4 +1,4 @@
-"""Tests for the pilot command-line interface."""
+"""Tests for command-line interface."""
 
 import pytest
 
@@ -10,7 +10,9 @@ def test_cli_displays_help_by_default(
 ) -> None:
     """Invoking the CLI without arguments displays help."""
     assert main([]) == 0
-    assert "Structural Assurability applied-research pilot." in capsys.readouterr().out
+    output = capsys.readouterr().out
+    assert "Build, validate, resolve, inspect, and analyze" in output
+    assert "Reactive Research graphs." in output
 
 
 def test_cli_help(

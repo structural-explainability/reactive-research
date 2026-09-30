@@ -13,6 +13,32 @@ version = "0.1.0"
 license-files = ["LICENSE"]
 readme = "README.md"
 requires-python = ">=3.14"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development",
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Utilities",
+    "Typing :: Typed",
+]
+keywords = [
+    "reactive-research",
+    "research-graphs",
+    "research-provenance",
+    "reproducible-research",
+    "structural-explainability",
+    "command-line-tool",
+    "python",
+    "uvx",
+    "automation",
+    "software-architecture",
+]
+
 dependencies = []
 
 [dependency-groups]
@@ -54,7 +80,7 @@ reactive-research = "reactive_research.cli:main"
 # WHY: Consistent test discovery and coverage visibility.
 minversion = "9.0"
 testpaths = ["tests"]
-addopts = "--cov=src/reactive_research/ --cov-fail-under=20 --cov-report=term-missing"
+addopts = "--cov=src/reactive_research/ --cov-fail-under=50 --cov-report=term-missing"
 filterwarnings = [
     "ignore:FigureCanvasAgg is non-interactive, and thus cannot be shown:UserWarning",
 ]

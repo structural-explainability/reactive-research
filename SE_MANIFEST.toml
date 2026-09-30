@@ -1,0 +1,83 @@
+# ============================================================
+# SE_MANIFEST.toml (Repository Declaration)
+# ============================================================
+
+schema = "se-manifest-schema"
+schema_version = "0.5.0"
+schema_url = "https://raw.githubusercontent.com/structural-explainability/se-manifest-schema/main/manifest-schema.toml"
+
+# === Framework Context ===
+
+[meta]
+framework = "Structural Explainability"
+framework_url = "https://github.com/structural-explainability"
+purpose = "Declares this repository's role in the Structural Explainability ecosystem."
+
+# === Repository Identity ===
+
+[repository]
+organization = "structural-explainability"
+name = "reactive-research"
+class = "tool"
+kind = "python-package"
+status = "active"
+since = "2026"
+summary = "Tools for representing, resolving, validating, and analyzing typed relationships among research objects."
+
+# === Layer Position ===
+
+[layer]
+space = "reactive-research"
+role = "tooling"
+
+# === Dependency Declarations ===
+
+[depends]
+required = [
+    { repository = "reactive-research-spec", kind = "semantic", version = "main" },
+]
+optional = [
+    { repository = "reactive-research-registry", kind = "semantic", version = "main" },
+    { repository = "se-manifest-schema", kind = "tooling", version = "main" },
+]
+
+# === Provided Artifacts ===
+
+[provides]
+artifacts = ["src/reactive_research", "tests", "README.md", "SE_MANIFEST.toml"]
+
+# === Validation ===
+
+[validation]
+entrypoint = "uv run reactive-research validate"
+strict_entrypoint = "uv run reactive-research validate --strict"
+
+# === Scope ===
+
+[scope]
+includes = [
+    "research-object declaration extraction",
+    "typed research relationship validation",
+    "research-object resolution",
+    "research graph construction",
+    "graph snapshot generation",
+    "change-impact analysis",
+]
+
+excludes = [
+    "definition of Reactive Research semantics",
+    "authoritative registry ownership",
+    "domain-specific research conclusions",
+    "automatic determination that affected research is invalid",
+]
+
+# === Citation ===
+
+[citation]
+cff = "CITATION.cff"
+preferred = "software"
+
+# === Traceability ===
+
+[traceability]
+identifier_map = "none"

@@ -6,9 +6,9 @@ cff-version: "1.2.0"
 message: "If you use this work, please cite it using the metadata in this file."
 type: software
 
-title: "Reactive Research Tools"
+title: "Reactive Research"
 version: "0.1.0"
-date-released: "2026-09-29"
+date-released: "2026-09-30"
 
 authors:
   - family-names: Case
@@ -21,10 +21,11 @@ url: "https://github.com/structural-explainability/reactive-research"
 license: MIT
 
 abstract: >
-  Reactive research tools for investigating and supporting
-  reproducible research.
+  Tools for representing, resolving, validating, and analyzing
+  typed relationships among research objects.
 
 keywords:
-  - structural-assurability
-  - structural-explainability
+  - reactive-research
+  - research-graphs
   - reproducible-research
+  - structural-explainability

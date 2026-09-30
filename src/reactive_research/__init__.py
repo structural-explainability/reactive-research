@@ -1,1 +1,1 @@
-"""Structural Assurability Pilot package."""
+"""Reactive Research package."""
