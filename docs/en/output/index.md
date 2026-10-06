@@ -24,8 +24,8 @@ The diagram therefore shows the immediate context around Transformation:
 which repositories are directly related to it and the type of each recorded
 relationship.
 
-Only one level of connections is included. Relationships beyond those direct
-neighbors are not included.
+Only one level of connections is included.
+Relationships beyond direct neighbors are not included.
 
 ```mermaid
 flowchart LR
