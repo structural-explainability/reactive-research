@@ -27,7 +27,9 @@ social = [
 [project.markdown_extensions]
 admonition = {} # WHY: Allows shaded blocks
 md_in_html = {} # WHY: Allow Markdown inside HTML blocks when the opening tag includes `markdown`, e.g. <details markdown>...</details>
-pymdownx.superfences = {} # WHY: Enables support for fenced code blocks with syntax highlighting and custom options.
+pymdownx.superfences.custom_fences = [ # WHY: Enables support for fenced code blocks with syntax highlighting and custom options.
+  { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" },
+]
 
 # ------------------------------------------------------------
 # Plugins
