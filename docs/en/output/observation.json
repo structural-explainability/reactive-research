@@ -14644,6 +14644,36 @@
       "target": "object:SEIR.THM.SPLIT_CTX_S"
     },
     {
+      "candidates": [
+        "repo:reactive-research-spec"
+      ],
+      "constraint": {
+        "kind": "semantic",
+        "repository": "reactive-research-spec",
+        "required": true,
+        "version": "main"
+      },
+      "declared_target": "reactive-research-spec",
+      "evidence": {
+        "adapter": "SE-manifest",
+        "file_digest": "efdc3242673090796f2f8673155b1d1f419a81fbf9bec9733ba9a3b9a5e26b91",
+        "line": null,
+        "path": "SE_MANIFEST.toml",
+        "project": "repo:reactive-research",
+        "source_revision": "b669cad13246e84b961a303e79ce7907b4ec82e3",
+        "state": "working"
+      },
+      "id": "edge:5b9380271f7cee17c60db4a4035225a9b8647adb3deb10b66b66fb460241c54b",
+      "kind": "semantic",
+      "relation": "depends-on",
+      "resolution": "resolved",
+      "source": "repo:reactive-research",
+      "target": "repo:reactive-research-spec",
+      "target_candidates": [
+        "repo:reactive-research-spec"
+      ]
+    },
+    {
       "constraint": {},
       "evidence": {
         "adapter": "paper-label",
@@ -16259,36 +16289,6 @@
       "target": "object:SEIR.THM.REFERENCE_PROFILES_CARD"
     },
     {
-      "candidates": [
-        "repo:reactive-research-spec"
-      ],
-      "constraint": {
-        "kind": "semantic",
-        "repository": "reactive-research-spec",
-        "required": true,
-        "version": "main"
-      },
-      "declared_target": "reactive-research-spec",
-      "evidence": {
-        "adapter": "SE-manifest",
-        "file_digest": "efdc3242673090796f2f8673155b1d1f419a81fbf9bec9733ba9a3b9a5e26b91",
-        "line": null,
-        "path": "SE_MANIFEST.toml",
-        "project": "repo:reactive-research",
-        "source_revision": "cd3525b2ff1853d637f39335fdeb3ff69de08a91",
-        "state": "working"
-      },
-      "id": "edge:6eb1998aba684c0b5a10ff15e325487ca03021cdfb2b1150e0ad48e661912db6",
-      "kind": "semantic",
-      "relation": "depends-on",
-      "resolution": "resolved",
-      "source": "repo:reactive-research",
-      "target": "repo:reactive-research-spec",
-      "target_candidates": [
-        "repo:reactive-research-spec"
-      ]
-    },
-    {
       "constraint": {},
       "evidence": {
         "adapter": "RR",
@@ -16622,36 +16622,6 @@
       "resolution": "resolved",
       "source": "repo:paper-200-identity-regimes",
       "target": "object:se200.prop.RuleUnderdetermination"
-    },
-    {
-      "candidates": [
-        "repo:se-manifest-schema"
-      ],
-      "constraint": {
-        "kind": "tooling",
-        "repository": "se-manifest-schema",
-        "required": false,
-        "version": "main"
-      },
-      "declared_target": "se-manifest-schema",
-      "evidence": {
-        "adapter": "SE-manifest",
-        "file_digest": "efdc3242673090796f2f8673155b1d1f419a81fbf9bec9733ba9a3b9a5e26b91",
-        "line": null,
-        "path": "SE_MANIFEST.toml",
-        "project": "repo:reactive-research",
-        "source_revision": "cd3525b2ff1853d637f39335fdeb3ff69de08a91",
-        "state": "working"
-      },
-      "id": "edge:713b683a5c0abb5ea24b7234869c353794f4c8851eb83f195510fad3801db734",
-      "kind": "tooling",
-      "relation": "depends-on",
-      "resolution": "resolved",
-      "source": "repo:reactive-research",
-      "target": "repo:se-manifest-schema",
-      "target_candidates": [
-        "repo:se-manifest-schema"
-      ]
     },
     {
       "constraint": {
@@ -18216,6 +18186,36 @@
       "target": "repo:spec-ep",
       "target_candidates": [
         "repo:spec-ep"
+      ]
+    },
+    {
+      "candidates": [
+        "repo:se-manifest-schema"
+      ],
+      "constraint": {
+        "kind": "tooling",
+        "repository": "se-manifest-schema",
+        "required": false,
+        "version": "main"
+      },
+      "declared_target": "se-manifest-schema",
+      "evidence": {
+        "adapter": "SE-manifest",
+        "file_digest": "efdc3242673090796f2f8673155b1d1f419a81fbf9bec9733ba9a3b9a5e26b91",
+        "line": null,
+        "path": "SE_MANIFEST.toml",
+        "project": "repo:reactive-research",
+        "source_revision": "b669cad13246e84b961a303e79ce7907b4ec82e3",
+        "state": "working"
+      },
+      "id": "edge:835d78922be33f3139c331eb3e2781ad0e06a35fb63aec8a1fc0c560e8883150",
+      "kind": "tooling",
+      "relation": "depends-on",
+      "resolution": "resolved",
+      "source": "repo:reactive-research",
+      "target": "repo:se-manifest-schema",
+      "target_candidates": [
+        "repo:se-manifest-schema"
       ]
     },
     {
@@ -24241,6 +24241,36 @@
       "target": "object:SE.Logic.Language.Bottom"
     },
     {
+      "candidates": [
+        "repo:reactive-research-registry"
+      ],
+      "constraint": {
+        "kind": "semantic",
+        "repository": "reactive-research-registry",
+        "required": false,
+        "version": "main"
+      },
+      "declared_target": "reactive-research-registry",
+      "evidence": {
+        "adapter": "SE-manifest",
+        "file_digest": "efdc3242673090796f2f8673155b1d1f419a81fbf9bec9733ba9a3b9a5e26b91",
+        "line": null,
+        "path": "SE_MANIFEST.toml",
+        "project": "repo:reactive-research",
+        "source_revision": "b669cad13246e84b961a303e79ce7907b4ec82e3",
+        "state": "working"
+      },
+      "id": "edge:cf14e1666c50eb3b654c579beca62946ec67dc59ca235dfd45f0ae264bb33bb7",
+      "kind": "semantic",
+      "relation": "depends-on",
+      "resolution": "resolved",
+      "source": "repo:reactive-research",
+      "target": "repo:reactive-research-registry",
+      "target_candidates": [
+        "repo:reactive-research-registry"
+      ]
+    },
+    {
       "constraint": {},
       "evidence": {
         "adapter": "RR",
@@ -28009,36 +28039,6 @@
       "resolution": "resolved",
       "source": "repo:theory/se-theory-persistence",
       "target": "object:PS.DEF.STEP_BRK"
-    },
-    {
-      "candidates": [
-        "repo:reactive-research-registry"
-      ],
-      "constraint": {
-        "kind": "semantic",
-        "repository": "reactive-research-registry",
-        "required": false,
-        "version": "main"
-      },
-      "declared_target": "reactive-research-registry",
-      "evidence": {
-        "adapter": "SE-manifest",
-        "file_digest": "efdc3242673090796f2f8673155b1d1f419a81fbf9bec9733ba9a3b9a5e26b91",
-        "line": null,
-        "path": "SE_MANIFEST.toml",
-        "project": "repo:reactive-research",
-        "source_revision": "cd3525b2ff1853d637f39335fdeb3ff69de08a91",
-        "state": "working"
-      },
-      "id": "edge:ffe7b740099ed1c8a3970b850491117f6edeb7fbaa4150c583462fe1556a7f2d",
-      "kind": "semantic",
-      "relation": "depends-on",
-      "resolution": "resolved",
-      "source": "repo:reactive-research",
-      "target": "repo:reactive-research-registry",
-      "target_candidates": [
-        "repo:reactive-research-registry"
-      ]
     }
   ],
   "format": "reactive-research-observation",
@@ -37877,12 +37877,10 @@
       "organization": "structural-explainability",
       "path": "reactive-research",
       "state": {
-        "commit_time": "2026-09-30T10:21:32-05:00",
-        "content_digest": "9b92e266d81a92925f2e93894a6f932b63010fac0dca3c8a256672e0a6f7c590",
+        "commit_time": "2026-10-06T13:22:29-05:00",
+        "content_digest": "a1f2b46c4829fe2d2e66c9be6055878f5eecf5b449c24666261aa236b4bd044a",
         "differs_from_head": true,
-        "exact_tags": [
-          "v0.2.0"
-        ],
+        "exact_tags": [],
         "files": {
           ".annotations/annotations.md": "9c0c968ac086e58f8871aa474e4d469550fa1bbf28c151bd772f0d76b07383b1",
           ".editorconfig": "3ebd90b7506d2410f0abe10ce116023c8f11bc90ccb03eb10bf2b05044c51d18",
@@ -37898,7 +37896,7 @@
           ".gitignore": "a25d15f922938ae54a0efe9d8685f81e729ae884e386b428a4dcb16064111de9",
           ".markdownlint-cli2.yaml": "c7d124526cdd9406494b71ca81b723981e513385ba0b11d6b4fc4d984ebdddc8",
           ".markdownlint.json": "d752b92f0e2252d8ee9b3218a2f1b25eef3636dd06cfe058dda1776f6d014e5e",
-          ".pre-commit-config.yaml": "cb6d95f3d515c8730ceff95d7656f89a15673e9e74e932705a576fe2c2ac2f77",
+          ".pre-commit-config.yaml": "fab932f7dd91796000f4c3ffa000d51e6f6b45f21602d5808c5255d7c9d279a2",
           ".vscode/ABOUT_THIS_FOLDER.md": "0eb76faff4449bf47a0260ef14b9b64464e4a37110329e0e303ca85c66447622",
           ".vscode/extensions.json": "4ef10e0fa832ddc8ef4488e942409c9bf0616a72cddcf5eec6d8a99af9a4ad21",
           ".vscode/settings.json": "3438b2699b714c5e9259eb0d6a3d85b8ff9d2d4d24e6b72a76f142d944b549e9",
@@ -37912,22 +37910,26 @@
           "docs/en/index.md": "f1ad7747e7b8de4a2b8b84b7990c5cfce5df2be19658793bf726e454bc16e3b2",
           "docs/en/observation-and-obligations.md": "7c582270381c4aa5bcc6f1a4139f38f2c6d38aeb82c681dd0fc1cec71b648fa2",
           "docs/en/output/evolution.mmd": "4f8a8aeab894db4f3f50829b9d7348cc91995b0f98437ee6c9c1ec3cdfdfb1a4",
-          "docs/en/output/index.md": "541a03cb9cefc612d6ba3564bb5e9326bab5608f429aeee88771cbc1c53bfcdd",
-          "docs/en/output/observation.json": "31af5c5792a568218356c1d1c22382d6f9e638fe3d804b28e4af5613633c162a",
-          "docs/en/output/propagation.mmd": "8e3240496e8a4c944378f401b493dd5a30e611661b740cbd78e2a1d4fe65010d",
-          "docs/en/output/repository-graph.json": "e8ce88f87718d742e377c95e8c64f370a5aa965c7b12aa3ec0079254b3d77455",
-          "docs/index.md": "809644225335cb3a70d1c56074ea309b5eac4b0ee2631efb7a39e8f7065d1176",
+          "docs/en/output/index.md": "a85ad64dd68419a9bbeead087d377b010f76fe708ce8872a8691ce980ec87efd",
+          "docs/en/output/observation.json": "14158b5bd1bef03b725898310a28264e4e7b14e99b4891f03675c365beab6acd",
+          "docs/en/output/propagation.mmd": "a18e6ab26fa21b4fc92628bea1af49f966854cf63028bda15375aaa42d8fe836",
+          "docs/en/output/repository-graph.json": "0ce0a2d5ea08cb69a2eefc90f398f3336d35170af2c24730c1855f33100f0c05",
+          "docs/en/output/transformation-downstream.json": "bb16453228dcaeb38483912053cf99317df61ac44967a3a3e076a39d715d79b8",
+          "docs/en/output/transformation-downstream.mmd": "289c3bba3f40d1e166aaebf798c0bf72d3061e827cdec626b9ffbdc4189f9adb",
+          "docs/en/output/transformation-neighborhood.json": "b268095e8083360df4ec9e87f0815c86e8342f50e9eb5a0a55925f1c161e3c5c",
+          "docs/en/output/transformation-neighborhood.mmd": "efa64ee290daf52aa3ec628764f5c3f35dee6aeb7c9a691c9d92c0d75d07dc7b",
+          "docs/index.md": "2c32d81f1ff722e450508ffdd76aa01e4a51ac62e53da0837d55c214a5b4ea3e",
           "examples/acceptance.py": "181761b35e6078a7b37497d88ee3274cb2c0801a1843f5e2f461fb23381d93bc",
           "pyproject.toml": "03a718030968bed9af95755ea88144662876204996b18586ec26122718107eae",
-          "registry/declarations.json": "d2c724f1418230e76babdfd8294007358eee140f41ef1dbe59d87dea559e9155",
+          "registry/declarations.json": "9c8fe1a327ebf3e26e8bd6289a6012a44f8af1d16b9c79296055d77870076702",
           "shape.ps1": "19c8703a964839c9e284bd0f9c5792e323bc741a844ed5f7cc6bba34f6e7ee54",
           "sit.ps1": "b37d8b0ef0e0c70f0ccaca36022eb3c138f18dff86e0c40df09aaf61d8ae86f2",
           "src/reactive_research/__init__.py": "b3adb4453d4b34c31808531a5e680e9e58554797167bac7480c27b42d6023cbf",
-          "src/reactive_research/cli.py": "613a4f7c60d7a9219e2054332759bd6c68623efe33a233731dd7992fdb479ba9",
+          "src/reactive_research/cli.py": "d57dcc5f57e9f345ce6f1d488459f3dea96f78560b13eb0d539f00e7882768da",
           "src/reactive_research/commands/__init__.py": "860c0b80cefd7d2e9444dde6b3c9ac7c00bdf6bc3e855f2ef270ba657acbff0a",
           "src/reactive_research/commands/common.py": "9b370159d32855bdf154e6e70e5e6bb6fe818dc57229f2671198f7776cded7c4",
           "src/reactive_research/commands/extract.py": "aa1ea67d636e7b68a30cb626c950992d5414b0972b2e3912eff342e3b56b4c3d",
-          "src/reactive_research/commands/generate.py": "3eb312293ede7e758cbd116c3b5caf3a5ead90ca720c797a083581449e2d7772",
+          "src/reactive_research/commands/generate.py": "be01eb8aad308df0ea733d9a9a0babf2148bd9b69a1eb2970ae51019c88303b7",
           "src/reactive_research/commands/graph.py": "886729d742cc51f30c79d6adb3e88fc732c2245769c32e589ef5ec740f7e1ced",
           "src/reactive_research/commands/impact.py": "2946902634253485c9d83706162326ae0683698d38b53005b920d18ba9e920da",
           "src/reactive_research/commands/inspect.py": "2c3b52e471301d33cd8744d437fe2347ac639b12e91c917530cb94e472f4a6d5",
@@ -37951,7 +37953,7 @@
           "src/reactive_research/validate.py": "c9c555b3763a242bc13d1ee52aaad9547d38c5e8ded41b7188188743af4061a8",
           "src/reactive_research/versioning.py": "e669f87b3331459871b094dc04fc7c0cc9b0337b1e531b67384387b5547a2a16",
           "tests/__init__.py": "c6ab093d3d504764c7ff91982bcb621e9f8b6f6f5c8711acaf5e3b316a0b019c",
-          "tests/test_cli.py": "22f79245db329db1afbc6d004d59c1db46fe6598c5c6cc9618d3a5f0aa79d0d1",
+          "tests/test_cli.py": "811ebd2149295931f7f510aacd93d0896fd33231eab13d92bb9af579bc48f016",
           "tests/test_declarations.py": "57362eecf7436c78b4a34ec93147a61c912d70f47b63c03b3cd46ef28801f280",
           "tests/test_extract.py": "a36790fc7bcbea8a6a91f1dce15832cd42850b0db58eeca80181779fb709b606",
           "tests/test_identifiers.py": "173bba8e11e19024140880d1b3a79cdd0ab533cf7a9a785ab650013e8709186e",
@@ -37960,13 +37962,13 @@
           "tests/test_resolve.py": "848525162a3bfd7a79e2386a8f0ad310324f5021bb4eec6bc15fb03665a07890",
           "tests/test_validate.py": "50ebdcb02ad939b0af260b8c965fa85c1add763b39b42f9bed87c9eaf0352875",
           "uv.lock": "61355f477a3b871e3fd05b551192f35555146faa99967eb37b21d1550c1618ba",
-          "zensical.toml": "783c923313dea9864a9e84c1fbec6a34fcb828f4695b11486f1018741f8de6ea"
+          "zensical.toml": "c9169df136d460273e839f49acfef39a242dc342708e0dc3074d4ea3a8c9a7a8"
         },
-        "head": "cd3525b2ff1853d637f39335fdeb3ff69de08a91",
+        "head": "b669cad13246e84b961a303e79ce7907b4ec82e3",
         "mode": "working",
         "observation": "filesystem",
-        "observed_revision": "working:sha256:9b92e266d81a92925f2e93894a6f932b63010fac0dca3c8a256672e0a6f7c590",
-        "source_revision": "cd3525b2ff1853d637f39335fdeb3ff69de08a91"
+        "observed_revision": "working:sha256:a1f2b46c4829fe2d2e66c9be6055878f5eecf5b449c24666261aa236b4bd044a",
+        "source_revision": "b669cad13246e84b961a303e79ce7907b4ec82e3"
       }
     },
     {
@@ -46373,5 +46375,5 @@
   ],
   "observer_version": 1,
   "scope": "Discovered Git/project roots; excludes caches, build outputs and symlinks. No scientific validation inferred.",
-  "snapshot_id": "sha256:0110bfbf84450b0b8c619861358b23c05718f10854e934b45c00ef109985867f"
+  "snapshot_id": "sha256:ae8e3bdbbf51459c27703f64ed9f7170c2c8c7fc331493db8de665acce271e24"
 }
