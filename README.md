@@ -62,6 +62,10 @@ Reactive Research currently consists of:
 
 ## Status
 
+The [observation and obligation pilot](docs/en/observation-pilot.md) adds
+content-addressed snapshots, snapshot-backed resolution, typed impact reports,
+freeze protection boundaries and Mermaid graphs from shared JSON.
+
 The initial implementation is being exercised against an existing
 multi-repository research program.
 

@@ -34,9 +34,48 @@ def resolve_research(
     snapshot: str | None,
 ) -> dict[str, Any]:
     """Resolve research-object references."""
-    current_document = export_declarations(path)
-
     if snapshot is not None:
+        from reactive_research.snapshot import load_snapshot
+
+        graph = load_snapshot(snapshot, registry)
+        if identifier is not None:
+            try:
+                identifier = str(parse_research_identifier(identifier))
+            except InvalidResearchIdentifierError as error:
+                return {
+                    "command": "resolve",
+                    "resolved": False,
+                    "results": [],
+                    "snapshot_id": graph["snapshot_id"],
+                    "diagnostics": [
+                        {
+                            "code": "RR.INVALID_IDENTIFIER",
+                            "severity": "error",
+                            "message": str(error),
+                        }
+                    ],
+                }
+        definitions = {
+            node["label"]: node.get("definitions", [])
+            for node in graph["nodes"]
+            if node["kind"] == "object"
+        }
+        targets = (
+            [identifier]
+            if identifier is not None
+            else sorted(
+                {
+                    edge["target"].removeprefix("object:")
+                    for edge in graph["edges"]
+                    if resolve_all
+                    and edge["relation"] == "implements"
+                    and edge["target"].startswith("object:")
+                }
+            )
+        )
+        results = [
+            _resolve_identifier(target, definitions=definitions) for target in targets
+        ]
         return {
             "command": "resolve",
             "path": str(path.resolve()),
@@ -44,17 +83,13 @@ def resolve_research(
             "resolve_all": resolve_all,
             "registry": registry,
             "snapshot": snapshot,
-            "resolved": False,
-            "results": [],
-            "diagnostics": [
-                {
-                    "code": "RR.SNAPSHOT_NOT_IMPLEMENTED",
-                    "severity": "error",
-                    "message": ("Snapshot-backed resolution is not implemented yet."),
-                }
-            ],
+            "resolved": all(result["status"] == "resolved" for result in results),
+            "results": results,
+            "diagnostics": [],
+            "snapshot_id": graph["snapshot_id"],
         }
 
+    current_document = export_declarations(path)
     try:
         registry_documents = _load_registry_documents(
             registry,

@@ -167,6 +167,22 @@ def _extract_file(
 
     relative_path = path.relative_to(root)
 
+    return extract_source_text(text, path=relative_path)
+
+
+def extract_source_text(
+    text: str,
+    *,
+    path: Path,
+) -> tuple[list[ResearchDeclaration], list[Diagnostic]]:
+    """Apply existing annotation normalization to observed or historical text."""
+    declarations: list[ResearchDeclaration] = []
+    diagnostics: list[Diagnostic] = []
+    pattern = _ANNOTATION_PATTERNS.get(path.suffix.lower())
+    if pattern is None:
+        return declarations, diagnostics
+    relative_path = path
+
     for line_number, line in enumerate(
         text.splitlines(),
         start=1,
@@ -180,7 +196,9 @@ def _extract_file(
             line=line_number,
         )
 
-        raw_relation = match.group("relation").upper()
+        raw_relation = match.group("relation").upper().replace("-", "_")
+        if raw_relation == "DEPENDS_ON":
+            raw_relation = "DEPENDS"
 
         try:
             relation = ResearchRelation(raw_relation)

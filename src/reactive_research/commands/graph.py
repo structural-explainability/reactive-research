@@ -32,8 +32,14 @@ def configure(parser: argparse.ArgumentParser) -> None:
     )
 
     add_path_argument(parser)
+    parser.add_argument(
+        "--category",
+        choices=("evolution", "propagation"),
+        default="propagation",
+        help="Relationship classes for Mermaid output.",
+    )
     add_resolution_arguments(parser)
-    add_output_arguments(parser)
+    add_output_arguments(parser, graph_formats=True)
 
     parser.set_defaults(handler=run)
 
@@ -47,6 +53,7 @@ def run(args: argparse.Namespace) -> int:
         registry=args.registry,
         snapshot=args.snapshot,
     )
+    result["category"] = args.category
 
     emit_result(
         result,

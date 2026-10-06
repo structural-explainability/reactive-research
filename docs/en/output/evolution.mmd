@@ -1,0 +1,232 @@
+flowchart LR
+  %% Typed arrows read source --relation--> target. Dependency impact follows reverse arrows; influence/protection follows forward arrows.
+  n0["IR.DEF.IsCanonicalRegime [observed ]"]
+  class n0 unresolved
+  n1["IR.DEF.NonCollapsing [observed ]"]
+  class n1 unresolved
+  n2["IR.DEF.ProfileWellFormed [observed ]"]
+  class n2 unresolved
+  n3["IR.DEF.RegimeApplicationAdmissible [observed ]"]
+  class n3 unresolved
+  n4["IR.DEF.RequirementSatisfied [observed ]"]
+  class n4 unresolved
+  n5["IR.DEF.UnderSplitPressure [observed ]"]
+  class n5 unresolved
+  n6["IR.DEF.classificationMatrix [observed ]"]
+  class n6 unresolved
+  n7["IR.DEF.derivedRegimeSet [observed ]"]
+  class n7 unresolved
+  n8["IR.THEOREM.all_regimes_canonical [observed ]"]
+  class n8 unresolved
+  n9["IR.THEOREM.classification_pattern_unique [observed ]"]
+  class n9 unresolved
+  n10["IR.THEOREM.derivedRegimeSet_card [observed ]"]
+  class n10 unresolved
+  n11["IR.THEOREM.derivedRegimeSet_complete [observed ]"]
+  class n11 unresolved
+  n12["IR.THEOREM.derivedRegimeSet_nodup [observed ]"]
+  class n12 unresolved
+  n13["IR.THEOREM.derivedRegimeSet_pairwise_noncollapse [observed ]"]
+  class n13 unresolved
+  n14["IR.THEOREM.nine_regime_lower_bound [observed ]"]
+  class n14 unresolved
+  n15["IR.THEOREM.regime_application_admissible_of_neutral [observed ]"]
+  class n15 unresolved
+  n16["IR.TYPE.ClassificationValue [observed ]"]
+  class n16 unresolved
+  n17["IR.TYPE.IdentityBasis [observed ]"]
+  class n17 unresolved
+  n18["IR.TYPE.ProfileAxes [observed ]"]
+  class n18 unresolved
+  n19["IR.TYPE.Regime [observed ]"]
+  class n19 unresolved
+  n20["IR.TYPE.RegimeProfile [observed ]"]
+  class n20 unresolved
+  n21["IR.TYPE.RegimeProfileKind [observed ]"]
+  class n21 unresolved
+  n22["IR.TYPE.Requirement [observed ]"]
+  class n22 unresolved
+  n23["IR.TYPE.Transformation [observed ]"]
+  class n23 unresolved
+  n24["SE.PRED.Composable [observed ]"]
+  class n24 unresolved
+  n25["SE.PRED.Integrated [observed ]"]
+  class n25 unresolved
+  n26["SE.PRED.Traceable [observed ]"]
+  class n26 unresolved
+  n27["SE.THM.composable_of_neutral [observed ]"]
+  class n27 unresolved
+  n28["SE.THM.emptyOntology_neutral [observed ]"]
+  class n28 unresolved
+  n29["SE.THM.integrated_of_composable [observed ]"]
+  class n29 unresolved
+  n30["SE.THM.oblContext_composable [observed ]"]
+  class n30 unresolved
+  n31["SE.THM.oblContext_integrated [observed ]"]
+  class n31 unresolved
+  n32["SE.TYPE.SEContext [observed ]"]
+  class n32 unresolved
+  n33["SE.WIT.emptyOntology [observed ]"]
+  class n33 unresolved
+  n34["SE.WIT.oblContext [observed ]"]
+  class n34 unresolved
+  n35["SE.WIT.oblProfile [observed ]"]
+  class n35 unresolved
+  n36["SE300.DEF.CLASSIFICATION_MAP [observed ]"]
+  class n36 unresolved
+  n37["SE300.DEF.FAITHFUL_EMBEDDING [observed ]"]
+  class n37 unresolved
+  n38["SE300.DEF.REGIME_GRAPH [observed ]"]
+  class n38 unresolved
+  n39["SE300.DEF.TRANSFORMATION_FAMILY [observed ]"]
+  class n39 unresolved
+  n40["SE300.THM.NINE_PROFILE_LOWER_BOUND [observed ]"]
+  class n40 unresolved
+  n41["SE300.THM.REPRESENTATION [observed ]"]
+  class n41 unresolved
+  n42["se100.constraint.Neutrality [duplicate-definition ]"]
+  class n42 ordinary
+  n43["se100.def.NeutralityByDesign [duplicate-definition ]"]
+  class n43 ordinary
+  n44["se100.def.PermittedAttributionProposition [duplicate-definition ]"]
+  class n44 ordinary
+  n45["se100.def.ReferentialCommitments [duplicate-definition ]"]
+  class n45 ordinary
+  n46["se100.def.ReferentialRegime [duplicate-definition ]"]
+  class n46 ordinary
+  n47["se100.def.Substrate [duplicate-definition ]"]
+  class n47 ordinary
+  n48["paper-100-neutral-substrate [committed 402e0442] / commit 2026-10-02"]
+  class n48 ordinary
+  n49["se-pilot-identity-preservation-supply-chain-software [committed f9c676ba] / commit 2026-10-05"]
+  class n49 ordinary
+  n50["contracts/FREEZE_01_COMMITMENT_EVALUATOR.md [committed f9c676ba] / commit 2026-10-05"]
+  class n50 protected
+  n51["contracts/commitments.toml [committed f9c676ba] / commit 2026-10-05"]
+  class n51 protected
+  n52["contracts/schema.md [committed f9c676ba] / commit 2026-10-05"]
+  class n52 protected
+  n53["contracts/sources.toml [committed f9c676ba] / commit 2026-10-05"]
+  class n53 protected
+  n54["docs/en/run.md [committed f9c676ba] / commit 2026-10-05"]
+  class n54 protected
+  n55["src/preservation_test/evaluator/evaluate.py [committed f9c676ba] / commit 2026-10-05"]
+  class n55 protected
+  n56["src/preservation_test/evaluator/formats.py [committed f9c676ba] / commit 2026-10-05"]
+  class n56 protected
+  n57["src/preservation_test/evaluator/purl_canonical.py [committed f9c676ba] / commit 2026-10-05"]
+  class n57 protected
+  n58["se-verification-operational-identity [committed 647cedb1] / commit 2026-07-22"]
+  class n58 ordinary
+  n59["se-theory-identity-regimes [working e8daf211] / declared 0.3.1 / commit 2026-10-03"]
+  class n59 ordinary
+  n60["se-theory-interpretive-kernel [working ] / declared 0.4.0"]
+  class n60 ordinary
+  n61["se-theory-neutral-substrate [working c19bb76e] / declared 0.10.0 / commit 2026-10-03"]
+  class n61 ordinary
+  n62["se-theory-operational-identity [working ] / declared 0.4.0"]
+  class n62 ordinary
+  n63["se-theory-structural-explainability [working 6c1d88e9] / declared 0.3.0 / commit 2026-07-25"]
+  class n63 ordinary
+  n50 -->|"freezes / protection"| n51
+  n50 -->|"freezes / protection"| n52
+  n50 -->|"freezes / protection"| n53
+  n50 -->|"freezes / protection"| n54
+  n50 -->|"freezes / protection"| n55
+  n50 -->|"freezes / protection"| n56
+  n50 -->|"freezes / protection"| n57
+  n58 -.->|"informs / context"| n49
+  n59 -->|"implements / semantic / unresolved"| n36
+  n59 -->|"implements / semantic / unresolved"| n37
+  n59 -->|"implements / semantic / unresolved"| n38
+  n59 -->|"implements / semantic / unresolved"| n39
+  n59 -->|"implements / semantic / unresolved"| n40
+  n59 -->|"implements / semantic / unresolved"| n41
+  n60 -.->|"cites / semantic / unresolved"| n0
+  n60 -.->|"cites / semantic / unresolved"| n1
+  n60 -.->|"cites / semantic / unresolved"| n2
+  n60 -.->|"cites / semantic / unresolved"| n3
+  n60 -.->|"cites / semantic / unresolved"| n4
+  n60 -.->|"cites / semantic / unresolved"| n5
+  n60 -.->|"cites / semantic / unresolved"| n6
+  n60 -.->|"cites / semantic / unresolved"| n7
+  n60 -.->|"cites / semantic / unresolved"| n8
+  n60 -.->|"cites / semantic / unresolved"| n9
+  n60 -.->|"cites / semantic / unresolved"| n10
+  n60 -.->|"cites / semantic / unresolved"| n11
+  n60 -.->|"cites / semantic / unresolved"| n12
+  n60 -.->|"cites / semantic / unresolved"| n13
+  n60 -.->|"cites / semantic / unresolved"| n14
+  n60 -.->|"cites / semantic / unresolved"| n15
+  n60 -.->|"cites / semantic / unresolved"| n16
+  n60 -.->|"cites / semantic / unresolved"| n17
+  n60 -.->|"cites / semantic / unresolved"| n18
+  n60 -.->|"cites / semantic / unresolved"| n19
+  n60 -.->|"cites / semantic / unresolved"| n20
+  n60 -.->|"cites / semantic / unresolved"| n21
+  n60 -.->|"cites / semantic / unresolved"| n22
+  n60 -.->|"cites / semantic / unresolved"| n23
+  n61 -.->|"cites / semantic / duplicate-definition"| n42
+  n61 -->|"formalizes / semantic / duplicate-definition"| n42
+  n61 -->|"implements / semantic / duplicate-definition"| n42
+  n61 -.->|"cites / semantic / duplicate-definition"| n43
+  n61 -->|"formalizes / semantic / duplicate-definition"| n43
+  n61 -->|"implements / semantic / duplicate-definition"| n43
+  n61 -.->|"cites / semantic / duplicate-definition"| n44
+  n61 -->|"formalizes / semantic / duplicate-definition"| n44
+  n61 -->|"implements / semantic / duplicate-definition"| n44
+  n61 -.->|"cites / semantic / duplicate-definition"| n45
+  n61 -->|"formalizes / semantic / duplicate-definition"| n45
+  n61 -->|"implements / semantic / duplicate-definition"| n45
+  n61 -.->|"cites / semantic / duplicate-definition"| n46
+  n61 -->|"formalizes / semantic / duplicate-definition"| n46
+  n61 -->|"implements / semantic / duplicate-definition"| n46
+  n61 -.->|"cites / semantic / duplicate-definition"| n47
+  n61 -->|"formalizes / semantic / duplicate-definition"| n47
+  n61 -->|"implements / semantic / duplicate-definition"| n47
+  n61 -.->|"cites / semantic / 16 evidence edges"| n48
+  n61 -->|"formalizes / semantic / 19 evidence edges"| n48
+  n61 -->|"implements / semantic / 18 evidence edges"| n48
+  n62 -.->|"cites / semantic / unresolved"| n0
+  n62 -.->|"cites / semantic / unresolved"| n1
+  n62 -.->|"cites / semantic / unresolved"| n2
+  n62 -.->|"cites / semantic / unresolved"| n3
+  n62 -.->|"cites / semantic / unresolved"| n4
+  n62 -.->|"cites / semantic / unresolved"| n5
+  n62 -.->|"cites / semantic / unresolved"| n6
+  n62 -.->|"cites / semantic / unresolved"| n7
+  n62 -.->|"cites / semantic / unresolved"| n8
+  n62 -.->|"cites / semantic / unresolved"| n9
+  n62 -.->|"cites / semantic / unresolved"| n10
+  n62 -.->|"cites / semantic / unresolved"| n11
+  n62 -.->|"cites / semantic / unresolved"| n12
+  n62 -.->|"cites / semantic / unresolved"| n13
+  n62 -.->|"cites / semantic / unresolved"| n14
+  n62 -.->|"cites / semantic / unresolved"| n15
+  n62 -.->|"cites / semantic / unresolved"| n16
+  n62 -.->|"cites / semantic / unresolved"| n17
+  n62 -.->|"cites / semantic / unresolved"| n18
+  n62 -.->|"cites / semantic / unresolved"| n19
+  n62 -.->|"cites / semantic / unresolved"| n20
+  n62 -.->|"cites / semantic / unresolved"| n21
+  n62 -.->|"cites / semantic / unresolved"| n22
+  n62 -.->|"cites / semantic / unresolved"| n23
+  n63 -.->|"cites / semantic / unresolved"| n24
+  n63 -.->|"cites / semantic / unresolved"| n25
+  n63 -.->|"cites / semantic / unresolved"| n26
+  n63 -.->|"cites / semantic / unresolved"| n27
+  n63 -.->|"cites / semantic / unresolved"| n28
+  n63 -.->|"cites / semantic / unresolved"| n29
+  n63 -.->|"cites / semantic / unresolved"| n30
+  n63 -.->|"cites / semantic / unresolved"| n31
+  n63 -.->|"cites / semantic / unresolved"| n32
+  n63 -.->|"cites / semantic / unresolved"| n33
+  n63 -.->|"cites / semantic / unresolved"| n34
+  n63 -.->|"cites / semantic / unresolved"| n35
+  classDef changed fill:#fde68a,stroke:#92400e,stroke-width:3px
+  classDef protected fill:#fecaca,stroke:#991b1b,stroke-width:3px
+  classDef mechanical fill:#bfdbfe,stroke:#1d4ed8
+  classDef semantic fill:#e9d5ff,stroke:#7e22ce
+  classDef verification fill:#bbf7d0,stroke:#166534
+  classDef unresolved fill:#e5e7eb,stroke:#4b5563,stroke-dasharray:5 5
+  classDef ordinary fill:#f8fafc,stroke:#64748b

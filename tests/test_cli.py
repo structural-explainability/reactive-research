@@ -11,8 +11,8 @@ def test_cli_displays_help_by_default(
     """Invoking the CLI without arguments displays help."""
     assert main([]) == 0
     output = capsys.readouterr().out
-    assert "Build, validate, resolve, inspect, and analyze" in output
-    assert "Reactive Research graphs." in output
+    assert "Extract, validate, resolve, graph, impact, snapshot, generate," in output
+    assert "Reactive Research views" in output
 
 
 def test_cli_help(
@@ -24,3 +24,9 @@ def test_cli_help(
 
     assert exc_info.value.code == 0
     assert "usage:" in capsys.readouterr().out
+
+
+def test_non_graph_commands_do_not_offer_mermaid() -> None:
+    with pytest.raises(SystemExit) as exc_info:
+        main(["extract", "--format", "mermaid"])
+    assert exc_info.value.code == 2

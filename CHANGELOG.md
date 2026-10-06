@@ -11,6 +11,24 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
 
 ---
 
+## [0.3.0] - 2026-10-06
+
+### Added
+
+- Deterministic versioned observations of working content and selected Git trees,
+  including source revisions, declarations, dependency pins and freeze hashes.
+- Snapshot-backed identifier resolution and narrow typed impact traversal with
+  human-readable revalidation obligations and protected evidence boundaries.
+- Mermaid evolution, propagation and impact graphs derived from shared JSON.
+- Read-only acceptance examples for SE-100, Transformation and PURL Freeze 01.
+
+### Changed
+
+- Shared source-text extraction with historical observations and distinguished
+  additional explicitly typed relationships without inferring scientific agreement.
+
+---
+
 ## [0.2.0] - 2026-09-30
 
 ### Added
@@ -50,7 +68,8 @@ We use **SemVer**:
 - **MINOR** - Backward-compatible additions to schema or validation rules.
 - **PATCH** - Fixes, documentation, and tooling.
 
-Package versions are derived from Git tags. Tag `vX.Y.Z` to release.
+Package versions are derived from Git tags.
+Tag `vX.Y.Z` to release.
 
 ## Release Procedure (Required)
 
@@ -67,19 +86,17 @@ Follow these steps exactly when creating a new release.
 Run from the repository root in PowerShell.
 
 ```powershell
-# Run repository checks.
+# Update Python and run repository checks.
 .\sit.ps1
 
 # Update GitHub Actions and pin all action references to immutable SHAs.
 uvx gha-tools autoupdate --pin=all --write .github/workflows
 
-# Update hooks.
-uvx prek update
-git add -A
-uvx prek run --all-files
-
 # Audit the resulting GitHub configuration for security findings.
 uvx zizmor@latest .github/
+# One informational is fine:
+# action functionality is already included by the runner
+#  --> .github\workflows\release-pypi.yml
 
 # Validate citation metadata.
 uvx cffconvert --validate
@@ -100,12 +117,11 @@ uv run reactive-research validate --strict --format json
 # Exercise registry loading and resolution of all local references.
 uv run reactive-research resolve --all --registry registry --format json
 
-# Verify remaining command surfaces parse successfully.
-uv run reactive-research resolve --help
-uv run reactive-research graph --help
-uv run reactive-research impact --help
-uv run reactive-research snapshot --help
-uv run reactive-research inspect --help
+# Exercise the complete Reactive Research observation, snapshot,
+# impact, graph, and frozen-evidence acceptance workflow against
+# the Structural Explainability repository family.
+uv run reactive-research generate --root .. --output docs/en/output
+# Inspect the generated content.
 ```
 
 ### Task 4. Commit, push, tag
@@ -132,7 +148,8 @@ git push origin :refs/tags/vX.Z.Y
 
 ## Links
 
-[Unreleased]: https://github.com/structural-explainability/reactive-research/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/structural-explainability/reactive-research/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/structural-explainability/reactive-research/releases/tag/v0.3.0
 [0.2.0]: https://github.com/structural-explainability/reactive-research/releases/tag/v0.2.0
 [0.1.0]: https://github.com/structural-explainability/reactive-research/releases/tag/v0.1.0
 

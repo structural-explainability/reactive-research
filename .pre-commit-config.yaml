@@ -1,7 +1,7 @@
 # ============================================================
-# .pre-commit-config.yaml (ALL-PY-SRC-REPOS)
+# .pre-commit-config.yaml (CUSTOM: ALL-PY-SRC-REPOS)
 # ============================================================
-# Updated: 2026-09-25
+# Updated: 2026-10-06 custom 3MB
 #
 # REQ: Professional projects using Python src/ SHOULD include git hooks.
 # WHY: Minimize git diffs, catch common issues early, and support collaboration.
@@ -93,7 +93,7 @@ repos:
 
       - id: check-added-large-files
         name: C1) Prevent accidental commits of large binaries
-        args: [--maxkb=2000] # WHY: 2MB is a common threshold for large files
+        args: [--maxkb=3000] # CUSTOM: 3MB to allow for observations
 
       - id: check-merge-conflict
         name: C2) Prevent committing merge conflicts
@@ -104,7 +104,7 @@ repos:
   # === REPO: RUFF PRE-COMMIT (for Python code) ===
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.16.9
+    rev: v0.16.10
     hooks:
       # === RUFF PRE-COMMIT CHECKS ===
       - id: ruff-format

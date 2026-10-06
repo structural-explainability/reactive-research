@@ -32,11 +32,13 @@ def add_resolution_arguments(parser: argparse.ArgumentParser) -> None:
     )
 
 
-def add_output_arguments(parser: argparse.ArgumentParser) -> None:
+def add_output_arguments(
+    parser: argparse.ArgumentParser, *, graph_formats: bool = False
+) -> None:
     """Add common output arguments."""
     parser.add_argument(
         "--format",
-        choices=("text", "json"),
+        choices=("text", "json", "mermaid") if graph_formats else ("text", "json"),
         default="text",
         help="Output format. Default: text.",
     )
@@ -54,14 +56,29 @@ def emit_result(
     output: Path | None,
 ) -> None:
     """Render and emit one command result."""
-    if output_format == "json":
+    if output_format == "mermaid":
+        from reactive_research.graph import mermaid_graph
+
+        rendered = mermaid_graph(
+            result,
+            category=result.get(
+                "category",
+                "impact" if result.get("command") == "impact" else "propagation",
+            ),
+        )
+    elif output_format == "json":
         rendered = json.dumps(
             result,
             indent=2,
             sort_keys=True,
         )
     else:
-        rendered = _render_text(result)
+        if result.get("command") == "impact":
+            from reactive_research.report import obligation_report
+
+            rendered = obligation_report(result)
+        else:
+            rendered = _render_text(result)
 
     if output is None:
         print(rendered)

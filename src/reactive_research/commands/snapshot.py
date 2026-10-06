@@ -28,6 +28,13 @@ def configure(parser: argparse.ArgumentParser) -> None:
     )
 
     add_path_argument(parser)
+    parser.add_argument(
+        "--at",
+        action="append",
+        default=[],
+        metavar="PROJECT=REV",
+        help="Observe a discovered relative project root at a committed Git revision without checkout.",
+    )
     add_resolution_arguments(parser)
     add_output_arguments(parser)
 
@@ -41,6 +48,7 @@ def run(args: argparse.Namespace) -> int:
         registry=args.registry,
         base_snapshot=args.snapshot,
         show=args.show,
+        revisions=dict(value.split("=", 1) for value in args.at),
     )
 
     emit_result(

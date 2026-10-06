@@ -76,6 +76,22 @@ implementation.
 
 See [API](api.md) for command-line usage and annotation syntax.
 
+## Generated Research Views
+
+Reactive Research can observe a research family and generate inspectable
+human-facing views from the resulting research graph.
+
+See:
+
+- [Observation and obligations](observation-and-obligations.md) for the
+  observation boundary, typed impact behavior, preservation rules, and
+  visualization model.
+- [Generated research views](output/) for the current generated research
+  graphs and structured data.
+
+Generated views are derived from the same structured nodes and edges used for
+resolution, snapshots, impact analysis, and machine-readable output.
+
 ## Structured Research
 
 Reactive Research is intended for structured research relationships generally.

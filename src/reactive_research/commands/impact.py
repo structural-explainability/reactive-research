@@ -54,8 +54,13 @@ def configure(parser: argparse.ArgumentParser) -> None:
     )
 
     add_path_argument(parser)
+    parser.add_argument(
+        "--relation",
+        action="append",
+        help="Selected impact relationship; repeat to select several. Context edges are opt-in and terminal.",
+    )
     add_resolution_arguments(parser)
-    add_output_arguments(parser)
+    add_output_arguments(parser, graph_formats=True)
 
     parser.set_defaults(handler=run)
 
@@ -70,6 +75,7 @@ def run(args: argparse.Namespace) -> int:
         snapshot=args.snapshot,
         from_snapshot=args.from_snapshot,
         to_snapshot=args.to_snapshot,
+        relations=set(args.relation) if args.relation is not None else None,
     )
 
     emit_result(

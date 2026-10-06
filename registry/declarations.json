@@ -3,14 +3,14 @@
   "command": "extract",
   "declarations": [],
   "diagnostics": [],
-  "extractor_version": "0.1.1.dev0+gc03491bd4.d20260930",
+  "extractor_version": "0.2.1.dev0+gcd3525b2f.d20261006",
   "format": "reactive-research-declarations",
   "format_version": 1,
   "path": "C:\\Users\\edaci\\Documents\\structural-explainability\\reactive-research",
   "repository": {
     "name": "reactive-research",
     "organization": "structural-explainability",
-    "revision": "c03491bd404656545a605fb6b6660955fec72481"
+    "revision": "cd3525b2ff1853d637f39335fdeb3ff69de08a91"
   },
   "valid": true
 }

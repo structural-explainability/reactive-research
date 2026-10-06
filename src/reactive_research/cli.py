@@ -2,13 +2,19 @@
 # src/reactive_research/cli.py
 # ============================================================
 
-"""Command-line interface for Reactive Research."""
+"""Command-line interface for Reactive Research.
+
+Generally:
+
+extract > validate > resolve > graph > impact > snapshot > generate > inspect
+"""
 
 import argparse
 from collections.abc import Callable, Sequence
 
 from reactive_research.commands import (
     extract,
+    generate,
     graph,
     impact,
     inspect,
@@ -26,8 +32,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="reactive-research",
         description=(
-            "Build, validate, resolve, inspect, and analyze "
-            "typed Reactive Research graphs."
+            "Extract, validate, resolve, graph, impact, snapshot, generate, "
+            "and inspect typed Reactive Research views."
         ),
     )
     parser.add_argument(
@@ -77,13 +83,18 @@ def build_parser() -> argparse.ArgumentParser:
             help="Create or inspect a reproducible graph snapshot.",
         )
     )
+    generate.configure(
+        subparsers.add_parser(
+            "generate",
+            help="Generate human-facing Reactive Research documentation.",
+        )
+    )
     inspect.configure(
         subparsers.add_parser(
             "inspect",
             help="Explain a research object, repository, or relationship.",
         )
     )
-
     return parser
 
 
@@ -97,7 +108,10 @@ def main(argv: Sequence[str] | None = None) -> int:
         return 0
 
     handler: CommandHandler = args.handler
-    return handler(args)
+    try:
+        return handler(args)
+    except (OSError, ValueError) as error:
+        parser.exit(2, f"reactive-research: {error}\n")
 
 
 if __name__ == "__main__":
