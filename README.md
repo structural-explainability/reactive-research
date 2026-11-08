@@ -4,7 +4,7 @@
 
 [![PyPI](https://img.shields.io/pypi/v/reactive-research.svg)](https://pypi.org/project/reactive-research/)
 [![Python 3.14](https://img.shields.io/badge/python-3.14%2B-blue?logo=python)](pyproject.toml)
-[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/license/MIT)
 [![CI Status](https://github.com/structural-explainability/reactive-research/actions/workflows/ci-python-zensical.yml/badge.svg)](https://github.com/structural-explainability/reactive-research/actions/workflows/ci-python-zensical.yml)
 [![Docs](https://img.shields.io/badge/docs-Zensical-blue)](https://structural-explainability.github.io/reactive-research/)
 

@@ -54,7 +54,7 @@ jobs:
         # WHY: Required so all subsequent steps can access repo files.
 
       - name: A2) Install uv (with caching)
-        uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
         with:
           enable-cache: true
           # WHY: Cache uv-managed artifacts for faster subsequent runs.
@@ -80,19 +80,19 @@ jobs:
           if [ -f "zensical.toml" ]; then
             uv run python -m zensical --version
           fi
-          uv run --no-sync prek --version 2>/dev/null \
-            || uv run --no-sync pre-commit --version 2>/dev/null \
+          uvx --no-sync prek --version 2>/dev/null \
+            || uvx --no-sync pre-commit --version 2>/dev/null \
             || echo "No hook runner installed"
         # WHY: Version output makes CI logs easier to debug when tools change.
 
       - name: A6) Run repository hooks on all files (prek or pre-commit)
         run: |
-          if uv run --no-sync prek --version > /dev/null 2>&1; then
+          if uvx --no-sync prek --version > /dev/null 2>&1; then
             echo "Hook runner: prek"
-            uv run --no-sync prek run --all-files
-          elif uv run --no-sync pre-commit --version > /dev/null 2>&1; then
+            uvx --no-sync prek run --all-files
+          elif uvx --no-sync pre-commit --version > /dev/null 2>&1; then
             echo "Hook runner: pre-commit"
-            uv run --no-sync pre-commit run --all-files
+            uvx --no-sync pre-commit run --all-files
           else
             echo "::error::Neither prek nor pre-commit is installed in the project environment. Add one to the dev dependency group in pyproject.toml."
             exit 1
