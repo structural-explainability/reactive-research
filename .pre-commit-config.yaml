@@ -12,12 +12,12 @@
 #   - pyproject.toml (Python tool settings)
 #
 # OPTIONAL LOCAL USAGE (keep tools updated):
-#   uv run prek install --force
-#   uv run prek update
+#   uvx prek install --force
+#   uvx prek update
 #
 # OPTIONAL LOCAL USAGE (run all hooks on all git-tracked files):
 #   git add -A
-#   uv run prek run --all-files
+#   uvx prek run --all-files
 #   The first time, it may indicate errors / fixes,
 #   So just re-run the command (up arrow) and it often goes all green.
 #
@@ -104,7 +104,7 @@ repos:
   # === REPO: RUFF PRE-COMMIT (for Python code) ===
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.16.10
+    rev: v0.17.4
     hooks:
       # === RUFF PRE-COMMIT CHECKS ===
       - id: ruff-format

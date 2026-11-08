@@ -13,6 +13,7 @@ import argparse
 from collections.abc import Callable, Sequence
 
 from reactive_research.commands import (
+    boundaries,
     extract,
     generate,
     graph,
@@ -93,6 +94,12 @@ def build_parser() -> argparse.ArgumentParser:
         subparsers.add_parser(
             "inspect",
             help="Explain a research object, repository, or relationship.",
+        )
+    )
+    boundaries.configure(
+        subparsers.add_parser(
+            "boundaries",
+            help="Observe manifest scope and DOUBTS.md entries across repositories.",
         )
     )
     return parser

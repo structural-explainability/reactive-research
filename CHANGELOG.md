@@ -11,6 +11,19 @@ and this project adheres to **[Semantic Versioning](https://semver.org/spec/v2.0
 
 ---
 
+## [0.4.0] - 2026-11-08
+
+### Added
+
+- `boundaries --from-readme SOURCE [--org ORG]` observes the repositories linked from an organization profile README, fetching only manifests and `DOUBTS.md` into a temporary directory and reporting unreachable repositories as diagnostics.
+- `boundaries` command for read-only observation of declared research boundaries across repositories.
+- Observation of SE manifest class, status, dependencies, and scope includes and excludes, together with `DOUBTS.md` entries, including their IDs, statuses, research criteria, and resolutions.
+- Diagnostics that keep missing data (no manifest found) separate from duplicate doubt IDs and doubt entries without a status.
+- Provisional candidate report for repeated includes, excludes with no exact include elsewhere, and identical scope sections, using normalized exact text comparison only.
+- Deterministic, content-addressed boundaries snapshots with JSON output and Markdown index, scope, and combined views, linked to the observed source revision.
+
+---
+
 ## [0.3.0] - 2026-10-06
 
 ### Added
@@ -148,7 +161,8 @@ git push origin :refs/tags/vX.Z.Y
 
 ## Links
 
-[Unreleased]: https://github.com/structural-explainability/reactive-research/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/structural-explainability/reactive-research/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/structural-explainability/reactive-research/releases/tag/v0.4.0
 [0.3.0]: https://github.com/structural-explainability/reactive-research/releases/tag/v0.3.0
 [0.2.0]: https://github.com/structural-explainability/reactive-research/releases/tag/v0.2.0
 [0.1.0]: https://github.com/structural-explainability/reactive-research/releases/tag/v0.1.0
